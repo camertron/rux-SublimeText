@@ -1,0 +1,13 @@
+class HomeComponent < ViewComponent::Base
+  include Bootstrap::Buttons
+
+  def call
+    5.times { |foo| puts foo }
+
+    <div>
+      <DangerButton foo={true} bar={boo} baz={{foo: "bar"}}>
+        {5.times.map { <Foo></Foo> }}
+      </DangerButton>
+    </div>
+  end
+end
