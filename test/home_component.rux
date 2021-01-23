@@ -5,9 +5,10 @@ class HomeComponent < ViewComponent::Base
     5.times { |foo| puts foo }
 
     <div>
-      <DangerButton foo={true} bar={boo} baz={{foo: "bar"}}>
+      <DangerButton::Foo foo={true} bar={boo} baz={{foo: "bar"}}>
         {5.times.map { <Foo></Foo> }}
-      </DangerButton>
+        <Another />
+      </DangerButton::Foo>
     </div>
   end
 end

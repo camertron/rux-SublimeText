@@ -1,14 +1,14 @@
 %YAML 1.2
 ---
 name: rux
-file_extensions: [rux]
+file_extensions: [rux, ruxt]
 scope: source.rb.rux
 variables:
   identifier: '\b[[:alpha:]_][[:alnum:]_]*\b'
   method_punctuation: '(?:[?!]|=(?![>=]))?'
   method_name: '{{identifier}}{{method_punctuation}}'
   path_lookahead: '(::)?({{identifier}}(\.|::))*{{identifier}}'
-  tagStart: '<(?=[_$a-zA-Z])'
+  tagStart: '<(?=[_$a-zA-Z:])'
 contexts:
   main:
     - include: rux
@@ -63,6 +63,10 @@ contexts:
 
     # End
     - match: '<?\/\w*'
+      scope: entity.name.tag.rux
+      pop: true
+
+    - match: '\s+/>'
       scope: entity.name.tag.rux
       pop: true
 
